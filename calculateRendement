@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+;(() => {
+	"use strict"
+	if (process.argv[2] === "--help") {
+		console.log("helps calculate the growth of assets use <original_price> <new_price>")
+		process.exit(0)
+	}
+
+	if (process.argv.length !== 4){
+		console.log("Invalid amount of arguments") 
+		process.exit(1)
+	}
+
+	const original = process.argv[2]
+	const result = process.argv[3]
+
+	function calculateRendement(original, result) {
+		return (result - original) / (original / 100)
+	}
+
+	console.log(`increased with a percentage ${calculateRendement(original, result).toFixed(2)}`)
+	console.log(`total money increase with ${(result - original).toFixed(2)}`)
+})()
